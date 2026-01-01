@@ -6,10 +6,10 @@ jobs:
   createPullRequest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           ssh-key: ${{ secrets.MINIFORGE_AUTOUPDATE_SSH_PRIVATE_KEY }}
-      - uses: conda-incubator/setup-miniconda@505e6394dae86d6a5c7fbb6e3fb8938e3e863830 # v3.1.1
+      - uses: conda-incubator/setup-miniconda@835234971496cad1653abb28a638a281cf32541f # v3.2.0
         with:
           miniforge-version: latest
           environment-file: .github/actions/autoupdate/environment.yml
@@ -17,7 +17,7 @@ jobs:
       - name: Create Pull Request
         id: cpr
         # This is the v3 tag but for security purposes we pin to the exact commit.
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
         with:
           commit-message: "Update mamba version"
           title: "Update mamba version"
